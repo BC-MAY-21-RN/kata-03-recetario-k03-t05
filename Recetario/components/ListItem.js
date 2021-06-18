@@ -8,15 +8,15 @@ export default function ListItem({big,imageUri,name,handleNavigation,tittle,reci
         >
             <TouchableHighlight onPress={() => handleNavigation(tittle,name,imageUri,recipe)}>
                 <View>
-                <Image 
-                    source = {imageUri} 
-                    style = {big ? stylesBig.images: styles.images}
-                />
-                <Text 
-                    style = {big ? stylesBig.imageText: styles.imageText}
-                >
-                    {name}
-                </Text>
+                    <Image 
+                        source = {imageUri} 
+                        style = {big ? stylesBig.images: styles.images}
+                    />
+                    <Text 
+                        style = {big ? stylesBig.imageText: styles.imageText}
+                    >
+                        {name}
+                    </Text>
                 </View>
             </TouchableHighlight>
         </View>

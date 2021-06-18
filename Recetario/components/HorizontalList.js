@@ -14,7 +14,7 @@ export default function HorizontalList({tittle,big,data,handleNavigation}){
                     data.map(food => (
                         <ListItem 
                             key={food.title}
-                            title={tittle}
+                            tittle={tittle}
                             name={food.title}
                             imageUri={food.src}
                             big={big}
