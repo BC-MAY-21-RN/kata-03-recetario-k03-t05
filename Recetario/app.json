@@ -1,0 +1,12 @@
+{
+  "name": "Recetario",
+  "displayName": "Recetario",
+  "expo": {
+    "name": "Recetario",
+    "slug": "Recetario",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
