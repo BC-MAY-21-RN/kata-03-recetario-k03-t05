@@ -2,21 +2,23 @@ import React from 'react';
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
 import ListItem from './ListItem';
 
-export default class HorizontalList extends React.Component {
-    render(){
+export default function HorizontalList({tittle,big,data,handleNavigation}){
         return( 
         <View>
-            <Text style={styles.text}>{this.props.tittle}</Text>
-            <ScrollView horizontal = {true}
-            showsHorizontalScrollIndicator = {false}>
+            <Text style={styles.text}>{tittle}</Text>
+            <ScrollView 
+                horizontal = {true}
+                showsHorizontalScrollIndicator = {false}
+            >
                 {
-                    this.prop.data.map(food => (
+                    data.map(food => (
                         <ListItem 
                             key={food.title}
-                            title={this.props.tittle}
+                            title={tittle}
                             name={food.title}
                             imageUri={food.src}
-                            big={this.props.big}
+                            big={big}
+                            handleNavigation={handleNavigation}
                             recipe={food.recipe}
                         />
                     ))
@@ -24,7 +26,7 @@ export default class HorizontalList extends React.Component {
             </ScrollView>
         </View>
         );
-    }
+
 }
 
 const styles = StyleSheet.create({

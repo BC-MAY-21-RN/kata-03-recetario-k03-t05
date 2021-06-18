@@ -1,30 +1,39 @@
 import React from 'react';
-import { StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, View, SafeAreaView, ScrollView, Button } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import HorizontalList from '../components/HorizontalList';
 import data from '../data';
 import recentData from '../data/recentData';
 
-export default class MainScreen extends React.Component {
+export default function HomeScreen({navigation}){
 
-    render(){
-    return (
-      <SafeAreaView style={{flex: 1, /*paddingTop:Platform.OS === "android" ? StatusBar.currentHeight : 1*/}}>
+  const handleNavigation = (tittle,name,imageUri,recipe) => {
+    navigation.navigate('Details',{
+      tittle,
+      name,
+      imageUri,
+      recipe
+    })
+  }
+
+  return (
+      <SafeAreaView style={{flex: 1}}>
         <View style={styles.container}>
             <SearchBar />
             <HorizontalList
+              handleNavigation = {handleNavigation}
               tittle = 'TRENDING' 
               data={data}
             />
             <HorizontalList
+              handleNavigation = {handleNavigation}
               tittle = 'RECENT' 
               data={recentData}
               big = {true}
             />
         </View>
       </SafeAreaView>
-    );
-  }
+  )
 }
   
 const styles = StyleSheet.create({

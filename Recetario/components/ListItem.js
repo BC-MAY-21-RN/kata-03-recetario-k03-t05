@@ -1,15 +1,26 @@
 import React from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableHighlight,recipe} from 'react-native';
 
-export default class RecipeItem extends React.Component {
-  render(){
+export default function ListItem({big,imageUri,name,handleNavigation,tittle,recipe}) {
     return(
-        <View style={this.props.big ? stylesBig.box: styles.box}>
-            <Image source = {this.props.imageUri} style = {this.props.big ? stylesBig.images: styles.images}/>
-            <Text style = {this.props.big ? stylesBig.imageText: styles.imageText}>{this.props.name}</Text>
+        <View 
+            style={big ? stylesBig.box: styles.box}
+        >
+            <TouchableHighlight onPress={() => handleNavigation(tittle,name,imageUri,recipe)}>
+                <View>
+                <Image 
+                    source = {imageUri} 
+                    style = {big ? stylesBig.images: styles.images}
+                />
+                <Text 
+                    style = {big ? stylesBig.imageText: styles.imageText}
+                >
+                    {name}
+                </Text>
+                </View>
+            </TouchableHighlight>
         </View>
       );
-    }
 }
 
 const styles = StyleSheet.create({
