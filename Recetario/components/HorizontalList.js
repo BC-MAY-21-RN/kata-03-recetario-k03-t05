@@ -9,22 +9,18 @@ export default class HorizontalList extends React.Component {
             <Text style={styles.text}>{this.props.tittle}</Text>
             <ScrollView horizontal = {true}
             showsHorizontalScrollIndicator = {false}>
-                <ListItem 
-                imageUri={require('../img/pizza.jpg')} 
-                name = 'Napolitan Pizza' 
-                big = {this.props.big}/>
-                <ListItem 
-                imageUri={require('../img/ceral.jpg')} 
-                name = 'Cereal'
-                big = {this.props.big}/> 
-                <ListItem 
-                imageUri={require('../img/pancake.jpeg')} 
-                name = 'Pancakes'
-                big = {this.props.big}/>
-                <ListItem 
-                imageUri={require('../img/sandwich.jpg')} 
-                name = 'Classic Sandwich'
-                big = {this.props.big}/>
+                {
+                    this.prop.data.map(food => (
+                        <ListItem 
+                            key={food.title}
+                            title={this.props.tittle}
+                            name={food.title}
+                            imageUri={food.src}
+                            big={this.props.big}
+                            recipe={food.recipe}
+                        />
+                    ))
+                }
             </ScrollView>
         </View>
         );

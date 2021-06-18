@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, View, SafeAreaView, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import HorizontalList from '../components/HorizontalList';
+import data from '../data';
+import recentData from '../data/recentData';
 
 export default class MainScreen extends React.Component {
 
@@ -11,10 +13,14 @@ export default class MainScreen extends React.Component {
         <View style={styles.container}>
             <SearchBar />
             <HorizontalList
-            tittle = 'TRENDING' />
+              tittle = 'TRENDING' 
+              data={data}
+            />
             <HorizontalList
-            tittle = 'RECENT' 
-            big = {true}/>
+              tittle = 'RECENT' 
+              data={recentData}
+              big = {true}
+            />
         </View>
       </SafeAreaView>
     );
